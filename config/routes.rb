@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get  '/page_indices', to: 'page_indices#index'
+  post '/page_indices', to: 'page_indices#create'
 end

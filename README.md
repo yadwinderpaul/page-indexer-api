@@ -1,24 +1,25 @@
-# README
+# Page Indexer API
+An API written in Ruby on Rails to index webpages. It fetches the URL's content, parses and stores header tags and the links. It is helpful to maintain a knowledgebase of webpages, categorized according to their topics, since headings tags contain the point of view of the entire webpage. And will work awesomely with a web crawler.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Endpoints
+To index a page's content
+```
+POST /page_indices?url=http://www.parse_this_url.com
+```
+To get a list of all parsed URLs with their content
+```
+GET /page_indices
+```
 
-Things you may want to cover:
+## Authentication
+To access the above routes, you have to pass thorugh Basic HTTP Auth with:
+```
+name: cool_user
+password: secret_sauce_7
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Install and Run
+* Setup a Ruby on Rails environment
+* Clone the repo
+* bundle install
+* rails server
