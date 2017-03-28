@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class PageIndex < ApplicationRecord
 
   # model event listeners
@@ -22,7 +20,17 @@ class PageIndex < ApplicationRecord
     self.headings = []
     self.links = []
 
-    doc = Nokogiri::HTML(open(self.url))
+    begin
+      response = RestClient.get(self.url)
+    rescue
+      raise ActiveRecord::RecordInvalid.new(), 'URL is not processible'
+    end
+
+    if(response.code != 200)
+      raise ActiveRecord::RecordInvalid.new(), 'URL is not processible'
+    end
+
+    doc = Nokogiri::HTML(response.body)
     self.content = doc.to_s
 
     links = doc.css('a')
