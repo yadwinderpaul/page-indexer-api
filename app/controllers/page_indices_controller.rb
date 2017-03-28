@@ -1,5 +1,5 @@
 class PageIndicesController < ApplicationController
-  http_basic_authenticate_with name: 'cool_user', password: 'secret_sauce_7'
+  before_action :is_authenticated?
 
   def index
     page_indices = PageIndex.all
