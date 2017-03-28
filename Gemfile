@@ -25,3 +25,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt'
 gem 'nokogiri'
 gem 'rest-client'
+gem 'active_model_serializers', '~> 0.10.0'

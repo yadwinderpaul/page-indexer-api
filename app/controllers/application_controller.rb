@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def render_api(object:, serializer: nil)
+      if(serializer)
+        render json: object, root: 'data', adapter: :json, meta: { success: true }, serializer: serializer
+      else
+        render json: object, root: 'data', adapter: :json, meta: { success: true }
+      end
+    end
+
 end

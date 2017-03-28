@@ -3,18 +3,17 @@ class PageIndicesController < ApplicationController
 
   def index
     page_indices = PageIndex.all
-    render json: {
-      :meta => { :success => true },
-      :data => page_indices
-    }
+    render_api(object: page_indices)
   end
 
   def create
     page_index = PageIndex.find_or_create_by!(:url => params[:url])
-    render json: {
-      :meta => { :success => true },
-      :data => page_index
-    }
+    render_api(object: page_index, serializer: PageIndexDetailSerializer)
+  end
+
+  def show
+    page_index = PageIndex.find(params[:id])
+    render_api(object: page_index, serializer: PageIndexDetailSerializer)
   end
 
 end
