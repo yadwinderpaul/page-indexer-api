@@ -12,7 +12,8 @@ GET /page_indices
 ```
 
 ## Authentication
-To access the above routes, you have to pass thorugh Basic HTTP Auth with:
+To access the above routes, you have to pass thorugh Basic HTTP Auth.
+A default user is seeded while setting up project:
 ```
 name: cool_user
 password: secret_sauce_7
@@ -22,4 +23,5 @@ password: secret_sauce_7
 * Setup a Ruby on Rails environment
 * Clone the repo
 * bundle install
+* rails db:create db:migrate db:seed
 * rails server
